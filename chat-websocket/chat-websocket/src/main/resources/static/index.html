@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat en Tiempo Real - WebSocket</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+<div id="username-page">
+    <div class="username-page-container">
+        <h1 class="title">ESPE Chat</h1>
+        <p class="subtitle">Sistema de mensajería distribuida con WebSocket</p>
+        <form id="usernameForm" name="usernameForm">
+            <div class="form-group">
+                <input type="text"
+                       id="name"
+                       placeholder="Ingresa tu nombre de usuario"
+                       autocomplete="off"
+                       class="form-control"
+                       maxlength="20"
+                       required />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="accent username-submit">
+                    Comenzar a Chatear
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="chat-page" class="hidden">
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>Sala de Chat</h2>
+            <div class="user-info">
+                <span id="connected-user" class="connected-user"></span>
+                <button id="logout-btn" class="logout-btn">Cerrar Sesión</button>
+            </div>
+        </div>
+
+        <div class="connecting">
+            <div class="spinner"></div>
+            <p>Conectando al servidor...</p>
+        </div>
+
+        <ul id="messageArea" class="message-area"></ul>
+
+        <form id="messageForm" name="messageForm" class="form">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text"
+                           id="message"
+                           placeholder="Escribe tu mensaje..."
+                           autocomplete="off"
+                           class="form-control"
+                           maxlength="500" />
+                    <button type="submit" class="primary">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- SockJS y STOMP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<!-- Script principal -->
+<script src="js/chat.js"></script>
+</body>
+</html>
